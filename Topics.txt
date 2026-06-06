@@ -1,0 +1,639 @@
+1. OOP
+Encapsulation
+
+Fields (instance, static)
+
+Access modifiers: private, default (package), protected, public
+
+Getters/setters
+
+Data hiding
+
+Immutability (unmodifiable collections, defensive copying)
+
+Inheritance
+
+Single inheritance (classes)
+
+Multiple inheritance (interfaces)
+
+extends, implements
+
+Method overriding vs hiding
+
+Field hiding
+
+super keyword
+
+Constructor chaining
+
+final classes/methods
+
+Composition over inheritance
+
+Polymorphism
+
+Compile-time (method overloading: same name, different params)
+
+Runtime (method overriding, dynamic method dispatch)
+
+Covariant return types
+
+Polymorphic parameters (superclass references)
+
+Polymorphic collections
+
+Abstraction
+
+Abstract classes vs interfaces
+
+Abstract methods
+
+Sealed classes & interfaces (Java 17+)
+
+permits clause
+
+Record classes (special form of abstraction)
+
+native methods (abstraction over native code)
+
+Miscellaneous OOP
+
+instanceof (including pattern matching, Java 16+)
+
+Casting (upcasting, downcasting, ClassCastException)
+
+Anonymous inner classes
+
+Local classes (inside methods)
+
+Static nested vs inner (non-static) classes
+
+Object lifecycle (construction, reachability, finalization/deprecated)
+
+equals(), hashCode(), toString() contracts
+
+clone() and Cloneable (shallow vs deep copy)
+
+finalize() (deprecated, why it's bad)
+
+Cleaner API (Java 9+)
+
+@Deprecated annotation
+
+2. Core Java (excluding collections/generics)
+Language Fundamentals
+
+Primitives (byte, short, int, long, float, double, char, boolean)
+
+Wrapper classes (Integer, Long, etc.) with caching (-128 to 127)
+
+Autoboxing/unboxing pitfalls
+
+Literals (binary, octal, hex, underscores)
+
+var (local variable type inference, Java 10+)
+
+Arrays (single/multi-dimensional, initializers, Arrays utility)
+
+Strings
+
+String immutability, interning (intern())
+
+String pool (heap vs permgen/metaspace)
+
+String vs StringBuilder vs StringBuffer
+
+StringJoiner, String.join()
+
+String.format(), formatted (Java 15+)
+
+Text blocks (Java 13/15+)
+
+indent(), translateEscapes(), stripIndent() (Java 13+)
+
+Exception Handling
+
+Checked vs unchecked exceptions
+
+Throwable, Error, Exception, RuntimeException
+
+try, catch, finally
+
+try-with-resources (AutoCloseable)
+
+Multi-catch (catch (A | B e))
+
+throw, throws
+
+Custom exceptions
+
+Exception chaining (initCause, getCause)
+
+Suppressed exceptions (addSuppressed, getSuppressed)
+
+finally block subtleties (return in finally overrides)
+
+Enums
+
+Declaration, constants
+
+Fields, constructors, methods
+
+values(), valueOf()
+
+EnumSet, EnumMap
+
+Singleton via enum
+
+ordinal() (avoid)
+
+Enum with abstract methods (constant-specific class body)
+
+record (Java 14+)
+
+Compact constructor
+
+Canonical constructor
+
+Custom methods
+
+equals/hashCode/toString auto-generation
+
+record as DTO, in pattern matching
+
+Restrictions (cannot extend, implicit final, etc.)
+
+sealed classes/interfaces (Java 17+)
+
+permits clause
+
+non-sealed subclass
+
+Sealed records, sealed enums
+
+switch expressions & pattern matching
+
+Arrow syntax (->)
+
+yield statement
+
+Switch as expression (returns value)
+
+Pattern matching for switch (Java 17 preview, 21+ final)
+
+Guarded patterns, null handling in switch
+
+assert keyword
+
+strictfp (obsolete, but exists)
+
+transient, volatile (though concurrency) – mention
+
+Basic I/O (console)
+
+System.out, System.err, System.in
+
+Console class (reading passwords)
+
+Number & Math utilities
+
+Math class (floor, ceil, round, abs, random, etc.)
+
+StrictMath (platform-independent)
+
+BigDecimal, BigInteger (scale, rounding modes)
+
+Math ulp, nextAfter, etc.
+
+Date & Time before Java 8 (legacy)
+
+java.util.Date, java.util.Calendar, GregorianCalendar
+
+java.text.SimpleDateFormat (thread safety issues)
+
+java.util.TimeZone
+
+java.util aside from collections
+
+Objects utility (requireNonNull, equals, hash, toString, isNull, nonNull)
+
+Random, ThreadLocalRandom, SplittableRandom
+
+Scanner (parsing input)
+
+Formatter, StringTokenizer (legacy)
+
+Timer, TimerTask (though limited)
+
+Reflection (core Java part) – basics
+
+Class<?>, forName(), .class, getClass()
+
+Accessing fields, methods, constructors
+
+setAccessible(true)
+
+Dynamic proxy (Proxy.newProxyInstance)
+
+3. Collections Framework
+Core interfaces hierarchy
+
+Iterable, Collection, List, Set, Queue, Deque, Map
+
+List implementations
+
+ArrayList (resizing, random access, fail-fast)
+
+LinkedList (also Deque, node structure)
+
+Vector, Stack (legacy, synchronized)
+
+CopyOnWriteArrayList (concurrent)
+
+Set implementations
+
+HashSet (backed by HashMap, hashing, load factor)
+
+LinkedHashSet (maintains insertion order)
+
+TreeSet (SortedSet, NavigableSet, red‑black tree)
+
+EnumSet (bit vector)
+
+ConcurrentSkipListSet (concurrent)
+
+Map implementations
+
+HashMap (buckets, rehashing, treeification for collisions)
+
+LinkedHashMap (insertion/access order)
+
+TreeMap (SortedMap, NavigableMap, comparator)
+
+EnumMap (array-based)
+
+IdentityHashMap (reference equality)
+
+WeakHashMap (weak keys)
+
+ConcurrentHashMap (concurrent, no blocking reads)
+
+ConcurrentSkipListMap
+
+Queue/Deque implementations
+
+PriorityQueue (heap, comparator)
+
+ArrayDeque (resizable array, no null)
+
+LinkedList (as Deque)
+
+ConcurrentLinkedQueue, ConcurrentLinkedDeque
+
+ArrayBlockingQueue, LinkedBlockingQueue (blocking)
+
+PriorityBlockingQueue, DelayQueue, SynchronousQueue, LinkedTransferQueue
+
+BlockingDeque (LinkedBlockingDeque)
+
+Utility classes
+
+Collections (synchronized wrappers, unmodifiable wrappers, sort, binarySearch, reverse, shuffle, etc.)
+
+Arrays (asList, sort, binarySearch, copyOf, equals, deepEquals, etc.)
+
+Comparator (comparing, thenComparing, nullsFirst, reverseOrder, etc.)
+
+Comparable (natural ordering)
+
+Iteration
+
+Iterator (hasNext, next, remove)
+
+ListIterator (previous, add, set)
+
+Spliterator (characteristics, tryAdvance, forEachRemaining, trySplit)
+
+Enhanced for‑loop (for-each)
+
+forEach method with lambda
+
+Historical/legacy
+
+Dictionary, Hashtable (synchronized, legacy)
+
+BitSet (not a true collection)
+
+Properties (extends Hashtable)
+
+4. Generics
+Basics
+
+Type parameters (<T>, <K,V>)
+
+Generic classes, interfaces, methods
+
+Generic constructors
+
+Bounded type parameters (<T extends Number>, <T extends Comparable<T>>)
+
+Multiple bounds (<T extends A & B>)
+
+Wildcards
+
+Unbounded wildcard (?)
+
+Upper bounded (? extends T)
+
+Lower bounded (? super T)
+
+PECS (Producer Extends, Consumer Super)
+
+Wildcard capture (helper method)
+
+Type Erasure
+
+Erasure of type parameters to Object or bound
+
+Bridge methods (for polymorphism)
+
+Raw types (why discouraged)
+
+Heap pollution
+
+@SafeVarargs (when to use)
+
+Reifiable vs non‑reifiable types
+
+instanceof with generics (limitations)
+
+Generic methods & type inference
+
+Type witness (ClassName.<String>method())
+
+Diamond operator (<>) (Java 7+)
+
+Local variable type inference with generics (var)
+
+Limitations & workarounds
+
+No generic arrays (unless unbounded wildcard or Array.newInstance)
+
+No primitive type parameters (use wrappers)
+
+Cannot instantiate type parameter (new T())
+
+Cannot have static fields of type parameter
+
+Cannot use catch with generic type
+
+Generic exceptions (throws T allowed but restricted)
+
+Advanced
+
+Generic annotations (Java 8+)
+
+Intersection types (<T extends Serializable & Cloneable>)
+
+Unbounded wildcard vs raw type
+
+Class<T> token for reification
+
+5. Multithreading & Concurrency
+Thread basics
+
+Extending Thread, implementing Runnable
+
+Thread.start(), run(), join(), interrupt()
+
+Thread states: NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED
+
+Thread.sleep(), yield()
+
+Daemon threads, thread priority
+
+Thread.UncaughtExceptionHandler
+
+Synchronization
+
+synchronized method vs block
+
+Intrinsic lock (monitor)
+
+Reentrant synchronization
+
+wait(), notify(), notifyAll() (object monitor)
+
+Spurious wakeups
+
+ThreadLocal (per‑thread variable)
+
+InheritableThreadLocal
+
+volatile keyword
+
+Visibility guarantee
+
+Happens‑before relationship
+
+No atomicity (read‑modify‑write not safe)
+
+java.util.concurrent.locks
+
+Lock, ReentrantLock
+
+Condition (await, signal, signalAll)
+
+ReadWriteLock, ReentrantReadWriteLock
+
+StampedLock (optimistic reading)
+
+Atomic classes
+
+AtomicInteger, AtomicLong, AtomicBoolean, AtomicReference
+
+AtomicIntegerArray, AtomicReferenceArray
+
+AtomicIntegerFieldUpdater, AtomicReferenceFieldUpdater
+
+LongAdder, DoubleAdder, LongAccumulator, DoubleAccumulator
+
+Executor framework
+
+Executor, ExecutorService, ScheduledExecutorService
+
+ThreadPoolExecutor (corePoolSize, maxPoolSize, queue, keepAliveTime, rejection handlers)
+
+ScheduledThreadPoolExecutor
+
+Executors factory (newFixedThreadPool, newCachedThreadPool, newSingleThreadExecutor, newScheduledThreadPool, newWorkStealingPool)
+
+ForkJoinPool (work stealing, common pool)
+
+RecursiveTask, RecursiveAction
+
+Futures & CompletableFuture
+
+Future, Callable, FutureTask
+
+CompletableFuture (supplyAsync, thenApply, thenCompose, thenCombine, allOf, anyOf, exceptionally, handle)
+
+CompletionStage methods
+
+CompletableFuture with custom executor
+
+Synchronizers
+
+CountDownLatch (one‑time)
+
+CyclicBarrier (reusable, with barrier action)
+
+Semaphore (counting, fair mode)
+
+Exchanger
+
+Phaser (more flexible)
+
+Concurrent collections (already in collections)
+
+ConcurrentHashMap, ConcurrentSkipListMap, ConcurrentSkipListSet
+
+ConcurrentLinkedQueue, ConcurrentLinkedDeque
+
+CopyOnWriteArrayList, CopyOnWriteArraySet
+
+BlockingQueue (Array, Linked, Priority, Delay, Synchronous)
+
+BlockingDeque, LinkedBlockingDeque
+
+TransferQueue, LinkedTransferQueue
+
+Memory consistency
+
+Happens‑before rules (program order, monitor lock, volatile, thread start/join, etc.)
+
+Data races
+
+Safe publication (immutable objects, final fields)
+
+Advanced concurrency
+
+ThreadFactory, RejectedExecutionHandler
+
+ThreadLocalRandom (avoid contention)
+
+LockSupport (park, unpark)
+
+VarHandle (Java 9+, low‑level atomic ops)
+
+java.lang.invoke.VarHandle (replaces Unsafe for some ops)
+
+Virtual Threads (Java 21+)
+
+Thread.ofVirtual(), Executors.newVirtualThreadPerTaskExecutor()
+
+Structured Concurrency (preview/incubator)
+
+6. Java 8+ Features (Streams, Lambdas, Optional, Date/Time)
+Lambdas
+
+Syntax: (params) -> expression or { }
+
+Functional interfaces (@FunctionalInterface)
+
+java.util.function package:
+
+Predicate, Function, Consumer, Supplier, UnaryOperator, BinaryOperator
+
+Primitive specializations (IntPredicate, LongFunction, DoubleConsumer, etc.)
+
+Bi‑variants (BiPredicate, BiFunction, BiConsumer)
+
+Method references: ::, 4 kinds (static, instance of specific object, instance of any object of a type, constructor)
+
+Lambda variable capture (effectively final)
+
+Serialization of lambdas (rare)
+
+Stream API
+
+Stream creation: Collection.stream(), Arrays.stream(), Stream.of(), Stream.iterate(), Stream.generate(), BufferedReader.lines(), Files.list(), IntStream.range()
+
+Intermediate operations: filter, map, flatMap, distinct, sorted, limit, skip, peek, mapToInt, boxed, etc.
+
+Terminal operations: forEach, toList (Java 16+), collect, reduce, count, anyMatch, allMatch, noneMatch, findFirst, findAny, min, max
+
+Collectors: toList, toSet, toMap, groupingBy, partitioningBy, joining, summarizingInt, reducing, mapping, flatMapping, filtering, teeing (Java 12+)
+
+Parallel streams (parallelStream(), Stream.parallel(), common fork‑join pool)
+
+Primitive streams: IntStream, LongStream, DoubleStream (range, rangeClosed, sum, average, summaryStatistics)
+
+Stream characteristics (ORDERED, DISTINCT, SIZED, SUBSIZED, CONCURRENT, etc.)
+
+Infinite streams (iterate, generate) with limit
+
+Optional
+
+Creation: Optional.of(), ofNullable(), empty()
+
+Query: isPresent(), isEmpty() (Java 11+)
+
+Actions: ifPresent(), ifPresentOrElse() (Java 9+)
+
+Transformation: map, flatMap, filter
+
+Fallback: orElse(), orElseGet(), orElseThrow()
+
+Stream conversion: stream() (Java 9+)
+
+OptionalInt, OptionalLong, OptionalDouble
+
+Pitfalls: using Optional as field or method parameter, serialization issues
+
+Date/Time API (java.time)
+
+LocalDate, LocalTime, LocalDateTime
+
+ZonedDateTime, OffsetDateTime, ZoneId, ZoneOffset
+
+Instant (epoch‑based)
+
+Period (date‑based), Duration (time‑based)
+
+DateTimeFormatter (with patterns, locale)
+
+TemporalAdjusters (firstDayOfMonth, nextFriday, etc.)
+
+Clock (fixed, offset, tick, system)
+
+Conversion between legacy (Date, Calendar) and new via toInstant(), toLocalDate(), etc.
+
+Default & static methods in interfaces
+
+Default methods (multiple inheritance resolution rules)
+
+Static methods in interfaces
+
+private methods in interfaces (Java 9+)
+
+Miscellaneous Java 8+
+
+java.util.Base64 (RFC 4648, 2045)
+
+CompletableFuture (already in concurrency)
+
+java.util.concurrent.Flow (Reactive Streams API, Java 9+)
+
+StackWalker (Java 9+)
+
+ProcessHandle (Java 9+)
+
+java.net.http.HttpClient (Java 11+)
+
+String methods: isBlank(), lines(), strip(), stripLeading(), stripTrailing(), repeat(), indent() (Java 11+)
+
+Files.writeString(), readString() (Java 11+)
+
+Collection.toArray(IntFunction) (Java 11+)
